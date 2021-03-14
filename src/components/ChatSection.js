@@ -1,11 +1,14 @@
 import React from 'react'
+import styled from 'styled-components';
 
-function ChatSection() {
+function ChatSection({rooms}) {
     return (
-        <div>
-            Char Section
-        </div>
+        <Container>
+{rooms.name}
+        </Container>
     )
 }
 
 export default ChatSection
+const Container= styled.div`
+`
