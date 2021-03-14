@@ -13,6 +13,7 @@ import db from './firebase'
 function App() {
 
 const [rooms,setRooms] = useState([]);
+const [user, setUser] = useState(); 
 
 const getChannels = () => {
   db.collection('rooms').onSnapshot((snapshot) => {
@@ -23,15 +24,17 @@ const getChannels = () => {
 }
 useEffect(() => {
   getChannels();
-  
 }, [])
 
-console.log(rooms);
+console.log("username details");
+console.log(user);
   return (
     <div className="App">
-      <Router>
-        <Container>
-          <Header />
+      <Router>{
+       !user ? <Login setUser={setUser} user={user} />:
+        
+       <Container>
+          <Header user={user}/>
           <Main>
             <Sidebar rooms={rooms}/>
             <ChatSection />
@@ -39,12 +42,11 @@ console.log(rooms);
               <Router path="/room">
                 <Chat />
               </Router>
-              <Route path="/">
-                <Login />
-              </Route>
+              
             </Switch>
           </Main>
         </Container>
+}
       </Router>
      
     </div>

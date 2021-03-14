@@ -13,6 +13,7 @@ function Sidebar({rooms}) {
         })
     }
 
+   
     return (
         <Container>
             <OptionsInSlack>
@@ -27,7 +28,7 @@ function Sidebar({rooms}) {
             </OptionsInSlack>
 
             <ChannelList>
-                <AddIcon onClick={AddChannel} />
+                <AddIcon onClick={AddChannel}/>
 {
     rooms.map(item => (
       <ChannelName> {item.name}</ChannelName> 

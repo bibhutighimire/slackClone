@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function ChatSection({rooms}) {
+function ChatSection() {
     return (
         <Container>
-{rooms.name}
+
         </Container>
     )
 }
